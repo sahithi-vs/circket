@@ -1,16 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from './lib/AuthContext'
-import LoginPage       from './pages/LoginPage'
-import HomePage        from './pages/HomePage'
-import TeamsPage       from './pages/TeamsPage'
-import MatchesPage     from './pages/MatchesPage'
-import NewMatchPage    from './pages/NewMatchPage'
-import ScoringPage     from './pages/ScoringPage'
-import ScorecardPage   from './pages/ScorecardPage'
-import TournamentsPage from './pages/TournamentsPage'
-import HistoryPage     from './pages/HistoryPage'
-import TabBar          from './components/shared/TabBar'
-import Loader          from './components/shared/Loader'
+
 
 
 
@@ -19,18 +9,22 @@ export default function App() {
   return (
     <div className="app-shell">
       <Routes>
-        <Route path="/login"                     element={<LoginPage />} />
-        <Route path="/"                          element={<Guard><HomePage /></Guard>} />
-        <Route path="/teams"                     element={<Guard><TeamsPage /></Guard>} />
-        <Route path="/matches"                   element={<Guard><MatchesPage /></Guard>} />
-        <Route path="/matches/new"               element={<Guard><NewMatchPage /></Guard>} />
-        <Route path="/matches/:id/score"         element={<Guard><ScoringPage /></Guard>} />
-        <Route path="/matches/:id/scorecard"     element={<Guard><ScorecardPage /></Guard>} />
-        <Route path="/tournaments"               element={<Guard><TournamentsPage /></Guard>} />
-        <Route path="/history"                   element={<Guard><HistoryPage /></Guard>} />
-        <Route path="*"                          element={<Navigate to="/" replace />} />
+| Feature | Details |
+|---|---|
+| **Live Scoring** | Ball-by-ball: runs, wickets, wides, no-balls, leg byes, byes |
+| **Team Management** | Create teams with 11 players, colours, and custom names |
+| **Match Setup** | Toss, overs selector (5/10/20/50), venue, batting order |
+| **Scorecard** | Full batting + bowling scorecard for both innings |
+| **Analytics** | Wagon wheel, Manhattan (runs/over), Worm chart |
+| **Player Stats** | Aggregated batting & bowling stats across all matches |
+| **Match History** | All past matches with results |
+| **Tournaments** | Create knockout/league tournaments with teams |
+| **Auth** | Google Sign-in via Firebase Authentication |
+| **Cloud Sync** | All data stored in Firestore, synced across devices |
       </Routes>
       {user && <TabBar />}
     </div>
+
+    ## this is testing
   )
 }
