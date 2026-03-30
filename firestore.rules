@@ -1,0 +1,26 @@
+// firestore.rules
+// Deploy with: firebase deploy --only firestore:rules
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Teams — only owner can read/write
+    match /teams/{docId} {
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.uid;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.uid;
+    }
+
+    // Matches — only owner can read/write
+    match /matches/{docId} {
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.uid;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.uid;
+    }
+
+    // Tournaments — only owner can read/write
+    match /tournaments/{docId} {
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.uid;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.uid;
+    }
+  }
+}

@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { -webkit-tap-highlight-color: transparent; }
+
+  html, body, #root {
+    @apply bg-cricket-darker text-white;
+    font-family: 'DM Sans', sans-serif;
+    overscroll-behavior: none;
+    min-height: 100dvh;
+  }
+
+  /* Mobile app feel */
+  body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #root {
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply max-w-md mx-auto min-h-dvh flex flex-col relative;
+    background: #0f1923;
+  }
+
+  .page {
+    @apply flex-1 overflow-y-auto pb-24;
+  }
+
+  .glass {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .card-dark {
+    @apply rounded-2xl p-4;
+    background: #131f2b;
+    border: 1px solid #1e2f40;
+  }
+
+  .score-giant {
+    font-family: 'Barlow Condensed', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+
+  .btn-primary {
+    @apply bg-pitch-500 hover:bg-pitch-400 active:scale-95 text-white font-semibold
+           py-3 px-6 rounded-2xl transition-all duration-150 w-full text-center;
+  }
+
+  .btn-secondary {
+    @apply bg-cricket-card hover:bg-cricket-border active:scale-95 text-white font-medium
+           py-3 px-6 rounded-2xl transition-all duration-150 w-full text-center;
+    border: 1px solid #1e2f40;
+  }
+
+  .btn-danger {
+    @apply bg-cricket-red/20 hover:bg-cricket-red/30 active:scale-95 text-red-400 font-medium
+           py-3 px-6 rounded-2xl transition-all duration-150 w-full text-center;
+    border: 1px solid rgba(192,57,43,0.3);
+  }
+
+  .input-dark {
+    @apply w-full bg-cricket-card border border-cricket-border rounded-xl px-4 py-3
+           text-white placeholder-gray-500 focus:outline-none focus:border-pitch-500
+           transition-colors text-sm;
+  }
+
+  .select-dark {
+    @apply input-dark appearance-none cursor-pointer;
+  }
+
+  .label {
+    @apply text-xs text-gray-400 uppercase tracking-wider font-medium mb-1 block;
+  }
+
+  .ball-chip {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold;
+  }
+
+  .score-btn {
+    @apply rounded-2xl flex items-center justify-center font-bold active:scale-95
+           transition-all duration-100 select-none cursor-pointer;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    min-height: 60px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .tab-bar {
+    @apply fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md
+           flex items-center justify-around px-2 py-2;
+    background: #0d1820;
+    border-top: 1px solid #1e2f40;
+    padding-bottom: env(safe-area-inset-bottom, 8px);
+  }
+
+  .tab-item {
+    @apply flex flex-col items-center gap-0.5 py-1 px-3 rounded-xl transition-all;
+  }
+
+  .stat-row {
+    @apply flex justify-between items-center py-2;
+    border-bottom: 1px solid #1e2f40;
+  }
+
+  .stat-row:last-child { border-bottom: none; }
+
+  .badge {
+    @apply text-xs px-2 py-0.5 rounded-full font-medium;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #1e2f40; border-radius: 9999px; }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Barlow Condensed', sans-serif; }
+  .safe-bottom  { padding-bottom: env(safe-area-inset-bottom, 16px); }
+  .safe-top     { padding-top: env(safe-area-inset-top, 0px); }
+}
