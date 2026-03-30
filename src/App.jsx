@@ -1,16 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from './lib/AuthContext'
-import LoginPage       from './pages/LoginPage'
-import HomePage        from './pages/HomePage'
-import TeamsPage       from './pages/TeamsPage'
-import MatchesPage     from './pages/MatchesPage'
-import NewMatchPage    from './pages/NewMatchPage'
-import ScoringPage     from './pages/ScoringPage'
-import ScorecardPage   from './pages/ScorecardPage'
-import TournamentsPage from './pages/TournamentsPage'
-import HistoryPage     from './pages/HistoryPage'
-import TabBar          from './components/shared/TabBar'
-import Loader          from './components/shared/Loader'
+
 
 function Guard({ children }) {
   const { user } = useAuth()
