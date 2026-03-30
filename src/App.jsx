@@ -12,11 +12,7 @@ import HistoryPage     from './pages/HistoryPage'
 import TabBar          from './components/shared/TabBar'
 import Loader          from './components/shared/Loader'
 
-function Guard({ children }) {
-  const { user } = useAuth()
-  if (user === undefined) return <Loader />
-  return user ? children : <Navigate to="/login" replace />
-}
+
 
 export default function App() {
   const { user } = useAuth()
